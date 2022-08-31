@@ -3,9 +3,12 @@ import React, { useState } from 'react';
 
 const PreviousScore = () => {
     const [open, setOpen] = useState(false);
-    const oldScores = JSON.parse(localStorage.getItem('previous_records')).map(
-        (score, _) => <div key={_}>{score}</div>
-    );
+    let scores = [];
+    if (localStorage.getItem('previous_records') !== null) {
+        JSON.parse(localStorage.getItem('previous_records')).map((score, _) =>
+            scores.push(<div key={_}>{score}</div>)
+        );
+    }
     return (
         <>
             <Button
@@ -33,7 +36,7 @@ const PreviousScore = () => {
                 overlayBlur={3}
                 overlayOpacity={0.55}
             >
-                {oldScores}
+                {scores.length === 0 ? 'no items yet' : scores}
             </Modal>
         </>
     );

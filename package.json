@@ -1,0 +1,31 @@
+{
+    "name": "nagwa-task",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "server": "cd server && npm start",
+        "client": "cd client && npm start",
+        "dev": "concurrently \"npm run server\" \"npm run client\"",
+        "setupserver": "cd server && npm install",
+        "setupclient": "cd client && npm install",
+        "setup": "concurrently \"npm run setupserver\" \"npm run setupclient\"",
+        "testserver": "cd server && npm test",
+        "testclient": "cd client && npm test",
+        "test": "echo \"testing server\" && npm run testserver && echo \"testing client\" && npm run testclient "
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/JoeHossam/nagwa-task.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/JoeHossam/nagwa-task/issues"
+    },
+    "homepage": "https://github.com/JoeHossam/nagwa-task#readme",
+    "dependencies": {
+        "concurrently": "^7.3.0"
+    }
+}

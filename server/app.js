@@ -22,13 +22,4 @@ app.use('/rank', rankRotuer);
 //handling not found
 app.use((req, res) => res.status(404).json({ msg: 'path does not exist' }));
 
-const port = 3001;
-const start = async () => {
-    try {
-        app.listen(port, console.log(`Listening on port ${port}...`));
-    } catch (error) {
-        console.log(error);
-    }
-};
-
-start();
+module.exports = app;
