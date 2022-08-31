@@ -18,17 +18,21 @@ const getWords = async (req, res) => {
     };
 
     const mustHaves = ['adjective', 'adverb', 'noun', 'verb'];
-    const shuffled = shuffleArray(wordList);
+    const shuffled = shuffleArray(wordList); // A suffled version of wordList
     const result = [];
 
+    // add 1 of each mustHaves words into result
+    // and removing it from the shuffled array (to prevent adding the same word twice)
     for (let i = 0; i < mustHaves.length; i++) {
         result.push(shuffled.removeIf((word) => word.pos === mustHaves[i]));
     }
 
+    // add the rest of the 10 elements
     for (let i = 0; i < 10 - mustHaves.length; i++) {
         result.push(shuffled[i]);
     }
 
+    // shuffle the results to prevent always starting with (adjective, adverb, ..) like in the mustHaves array.
     return res.status(200).json({ words: shuffleArray(result) });
 };
 
