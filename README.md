@@ -63,8 +63,10 @@ The tests can be found in `./server/test.js` in there you can find 5 tests:
 
 ### Frontend
 
-frontend testing is using `jest` and `@testing-library`.  
- > **Note:** Jest will display warrnings because the timer is always updating (you can ignore it).
+frontend testing is using `jest` and `@testing-library`.
+
+> **Note:** Jest will display warrnings because the timer is always updating (you can ignore it).
+
 The tests can be found in `./client/src/App.test.js` in there you can find 2 tests:
 
 1. The words counter updates
