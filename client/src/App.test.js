@@ -8,6 +8,7 @@ import {
 import axios from 'axios';
 import { act } from 'react-dom/test-utils';
 import App from './App';
+import { api_url } from './constants';
 
 jest.mock('axios');
 
@@ -81,9 +82,7 @@ test('The words counter updates correctly', (done) => {
         const { getByTestId } = setup();
 
         setTimeout(async () => {
-            expect(axios.get).toHaveBeenCalledWith(
-                `http://localhost:3001/word`
-            );
+            expect(axios.get).toHaveBeenCalledWith(api_url);
             let title = getByTestId('title');
             const answerNoun = getByTestId('noun');
             expect(title).toHaveTextContent('Word 1 out of 10');

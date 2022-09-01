@@ -11,7 +11,7 @@ import {
     Button,
 } from '@mantine/core';
 import PreviousScore from './components/PreviousScore';
-const api_url = 'http://localhost:3001';
+import { api_url } from './constants';
 
 function App() {
     const [words, setWords] = useState([]);
