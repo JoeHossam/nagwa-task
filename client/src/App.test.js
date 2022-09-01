@@ -82,14 +82,14 @@ test('The words counter updates correctly', (done) => {
         const { getByTestId } = setup();
 
         setTimeout(async () => {
-            expect(axios.get).toHaveBeenCalledWith(api_url);
-            let title = getByTestId('title');
-            const answerNoun = getByTestId('noun');
+            expect(axios.get).toHaveBeenCalledWith(`${api_url}/word`);
+            let title = getByTestId('title'); // grab title
+            const answerNoun = getByTestId('noun'); // grab first choice
             expect(title).toHaveTextContent('Word 1 out of 10');
             fireEvent.click(answerNoun);
             title = getByTestId('title');
-            await new Promise((r) => setTimeout(r, 2000));
-            expect(title).toHaveTextContent('Word 2 out of 10');
+            await new Promise((r) => setTimeout(r, 2000)); //wait for 2 seconds
+            expect(title).toHaveTextContent('Word 2 out of 10'); // check if counter changed
             done();
         }, 500);
     });
