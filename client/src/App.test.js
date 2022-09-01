@@ -1,4 +1,10 @@
-import { fireEvent, getByText, render, screen } from '@testing-library/react';
+import {
+    fireEvent,
+    getByText,
+    render,
+    screen,
+    waitFor,
+} from '@testing-library/react';
 import axios from 'axios';
 import { act } from 'react-dom/test-utils';
 import App from './App';
@@ -12,7 +18,7 @@ const setup = () => {
 
 // Jest will display warrnings because the timer is always updating.
 // Could be fixed if I had more time
-test('The words counter updates', (done) => {
+test('The words counter updates correctly', (done) => {
     const words = {
         data: {
             words: [
@@ -87,5 +93,18 @@ test('The words counter updates', (done) => {
             expect(title).toHaveTextContent('Word 2 out of 10');
             done();
         }, 500);
+    });
+});
+
+test('display error message if api is down', (done) => {
+    axios.get.mockRejectedValueOnce(new Error('Network Error'));
+
+    act(() => {
+        const alertMock = jest.spyOn(window, 'alert').mockImplementation();
+        setup();
+        setTimeout(async () => {
+            expect(alertMock).toHaveBeenCalledTimes(1);
+            done();
+        }, 2000);
     });
 });
