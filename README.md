@@ -18,7 +18,7 @@ You can install the application by following these steps:
 
 1.  ### Backend (Express)
 
-    The server listens on port 3001.
+    Once the server is up you can test the API on (http://localhost:3001)[http://localhost:3001].
 
     #### API Routes
 
@@ -28,7 +28,11 @@ You can install the application by following these steps:
 
 2.  ### Frontend (React)
 
-    The server Listens on port 3000.
+    When the server starts a browser tab should open on (http://localhost:3000)[http://localhost:3000].
+
+    Start categorizing the words by clicking on the answers.  
+    feedback will be shown on weither the answer was true or false.  
+    when you finish the 10 words you will see a finishing screen that contains all the result (score, rank, time taken).
 
     #### Screens
 
