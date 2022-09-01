@@ -1,1 +1,1 @@
-export const api_url = `http://localhost:3001/word`;
+export const api_url = `http://localhost:3001`;
