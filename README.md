@@ -14,6 +14,16 @@ You can install the application by following these steps:
 6. Run `npm run dev`, to start both servers.
     > **NOTE:** It will take some time. A browser tab will open when it is ready.
 
+## How to use
+
+After following the installation steps the server should start.
+When the server starts a browser tab should open on [http://localhost:3000](http://localhost:3000).
+
+1. Start categorizing the words by clicking on the answers.
+2. feedback will be shown on weither the answer was true or false.
+3. when you finish the 10 words you will see a finishing screen that contains all the result (score, rank, time taken).
+4. You can check all the previous records you have made by clicking on the history button on the top right corner.
+
 ## Project is split into parts
 
 1.  ### Backend (Express)
@@ -29,10 +39,6 @@ You can install the application by following these steps:
 2.  ### Frontend (React)
 
     When the server starts a browser tab should open on [http://localhost:3000](http://localhost:3000).
-
-    Start categorizing the words by clicking on the answers.  
-    feedback will be shown on weither the answer was true or false.  
-    when you finish the 10 words you will see a finishing screen that contains all the result (score, rank, time taken).
 
     #### Screens
 
