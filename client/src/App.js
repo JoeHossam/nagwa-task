@@ -75,23 +75,29 @@ function App() {
                 score: score,
                 rank: data.rank,
             });
-        } catch (error) {
-            alert('it seems that the api is down');
-        }
-        setActive(false);
+            setActive(false);
 
-        // for seeing the history
-        if (localStorage.getItem('previous_records') === null) {
-            localStorage.setItem('previous_records', JSON.stringify([score]));
-        } else {
-            const oldScores = JSON.parse(
-                localStorage.getItem('previous_records')
-            );
-            oldScores.push(score);
-            localStorage.setItem(
-                'previous_records',
-                JSON.stringify([...oldScores])
-            );
+            // for seeing the history
+            if (localStorage.getItem('previous_records') === null) {
+                localStorage.setItem(
+                    'previous_records',
+                    JSON.stringify([score])
+                );
+            } else {
+                const oldScores = JSON.parse(
+                    localStorage.getItem('previous_records')
+                );
+                oldScores.push(score);
+                localStorage.setItem(
+                    'previous_records',
+                    JSON.stringify([...oldScores])
+                );
+            }
+        } catch (error) {
+            if (error?.response?.status === 400) {
+                alert('an error occured please refresh and try again'); // if score was not sent in request for some reason
+            }
+            alert('it seems that the api is down');
         }
     };
 

@@ -2,6 +2,9 @@ const { scoresList } = require('../TestData.json');
 
 const rank = async (req, res) => {
     const { score: userScore } = req.body;
+    if (!userScore) {
+        return res.status(400).json({ message: 'Please provide a score' });
+    }
     const sorted = scoresList.sort((a, b) => a - b); // sorts the array
     const pos = sorted.findIndex((score) => score >= userScore); // gets the index to know how many values are smaller than the user's score
     const rank = Math.round(100 * (pos / sorted.length) * 100) / 100;
